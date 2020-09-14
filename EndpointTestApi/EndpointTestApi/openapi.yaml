@@ -1,0 +1,39 @@
+swagger: "2.0"
+
+info:
+  title: "testapi"
+  description: "Test API"
+  version: "1.0.0"
+
+host: "pythontestapp2.appspot.com"
+
+schemes:
+  - "https"
+
+paths:
+  "/facture/liste":
+    get:
+      description: "Obtient le nombre de facture traitee."
+      operationId: "factureList"
+      responses:
+        200:
+          description: "Success."
+          schema:
+            type: string
+        400:
+          description: "La liste de facture est introuvable."
+
+  "/facture/{factureName}":
+    post:
+      summary: "Creer une nouvelle facture."
+      operationId: "postFacture"
+      parameters:
+        - in: path
+          name: factureName
+          required: true
+          type : string
+      responses:
+        200:
+          description: "Success."
+        400:
+          description: "Invalid query."
